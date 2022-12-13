@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pokedex Home{% endblock %}
+
+{% block body %}
+    <h1>Pokemons !</h1>
+
+    {% if pokemons | length > 0 %}
+        <dl>
+            {% for pokemon in pokemons %}
+                <hr />
+                <p>
+                    <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" width="75px" />
+                </p>
+                <dt>
+                    <strong>{{ pokemon.name }}</strong>
+                </dt>
+                <dd>
+                    {% if pokemon.generation == 1 %}
+                        {{ pokemon.generation }}st
+                    {% elseif pokemon.generation == 2 %}
+                        {{ pokemon.generation }}nd
+                    {% elseif pokemon.generation == 3 %}
+                        {{ pokemon.generation }}rd
+                    {% else %}
+                        {{ pokemon.generation }}th
+                    {% endif %}
+                    gen.
+                </dd>
+                {% if pokemon.types | length > 0 %}
+                    <p>
+                        <em>Types:</em>
+                    </p>
+                    <ul>
+                        {% for type in pokemon.types %}
+                            <li>{{ type.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        </dl>
+
+        <hr />
+
+        <p>
+            <a href="{{ path('app_pokemon_unload') }}">Remove Pokemons</a>
+        </p>
+    {% else %}
+        <p>No Pokemon in database</p>
+        <p>
+            <a href="{{ path('app_pokemon_load') }}">Load Pokemons from API Pokebuild</a>
+        </p>
+    {% endif %}
+{% endblock %}
