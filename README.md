@@ -1,6 +1,6 @@
 # Formation Symfony - exemples  
 Manipulations diverses avec Symfony6  
-Étape 1 : installation d'une webapp SF 6.2.1
+Étape 2 : Consommation d'une API externe et remplissage d'entités relationnelles
 
 ---  
 
