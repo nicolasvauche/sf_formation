@@ -12,8 +12,6 @@ class DefaultController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(MicrophoneRepository $microphoneRepository): Response
     {
-        return $this->render('default/index.html.twig', [
-            'microphones' => $microphoneRepository->findAll(),
-        ]);
+        return $this->render('default/index.html.twig');
     }
 }

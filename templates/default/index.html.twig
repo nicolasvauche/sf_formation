@@ -9,11 +9,5 @@
 {% block body %}
     <h1>Microphones !</h1>
 
-    {% if microphones | length > 0 %}
-        <dl id="microphones">
-
-        </dl>
-    {% else %}
-        <p>No microphone in database</p>
-    {% endif %}
+    <dl id="microphones"></dl>
 {% endblock %}
