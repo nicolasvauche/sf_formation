@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Microphone;
 use App\Repository\MicrophoneRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,5 +21,13 @@ class MicrophoneController extends AbstractController
     public function ajax(MicrophoneRepository $microphoneRepository): Response
     {
         return $this->json($microphoneRepository->findAll(), 200);
+    }
+
+    #[Route('/ajax/remove/{id}', name: 'ajax_remove')]
+    public function ajaxRemove(MicrophoneRepository $microphoneRepository, Microphone $microphone): Response
+    {
+        $microphoneRepository->remove($microphone, true);
+
+        return $this->json(['message' => 'Le microphone ' . $microphone->getName() . ' a été supprimé'], 200);
     }
 }
