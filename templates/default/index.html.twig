@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The Microphones{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/index.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+    <h1>Microphones !</h1>
+
+    {% if microphones | length > 0 %}
+        <dl id="microphones">
+
+        </dl>
+    {% else %}
+        <p>No microphone in database</p>
+    {% endif %}
+{% endblock %}
