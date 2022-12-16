@@ -3,11 +3,11 @@
 {% block title %}The Microphones{% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('js/index.js') }}" defer></script>
+    <script src="{{ asset('js/index.js') }}" type="module" defer></script>
 {% endblock %}
 
 {% block body %}
     <h1>Microphones !</h1>
 
-    <dl id="microphones"></dl>
+    <div id="microphones"></div>
 {% endblock %}
